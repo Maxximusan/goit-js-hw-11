@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // отвечает за запросы на api
-export default class NewApiService {
+export default class PixabayApiService {
     constructor() {
         this.searchQuery = '';
         this.page = 1;

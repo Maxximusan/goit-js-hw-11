@@ -1,7 +1,7 @@
 export default function markupGalleryCard(data) {
-    return `< div class="photo-card" >
+  return `<div class="photo-card">
     <a href="${data.largeImageURL}">
-  <img src="${data.webformatURL}" alt="${data.tags}" loading="lazy" />
+  <img class="photo-img" src="${data.webformatURL}" alt="${data.tags}" loading="lazy" />
   </a>
   <div class="info">
     <p class="info-item"><b>Likes</b>${data.likes}</p>
