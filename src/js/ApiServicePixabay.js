@@ -5,6 +5,10 @@ export default class PixabayApiService {
     constructor() {
         this.searchQuery = '';
         this.page = 1;
+        this.per_page = 40;
+        this.totalHits = null;
+        this.totalPages = null;
+        this.endOfHits = false;
     }
 
     async fetchGalleryCards() {
@@ -18,7 +22,7 @@ export default class PixabayApiService {
                 orientation: 'horizontal',
                 safesearch: true,
                 page: `${this.page}`,
-                per_page: 40,
+                per_page: `${this.per_page}`,
             },
         };
         try {
