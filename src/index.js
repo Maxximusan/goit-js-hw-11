@@ -26,7 +26,7 @@ function onMarcupGallery(data) {
     refs.galleryContainer.insertAdjacentHTML('beforeend', markup);
     lightbox.refresh();
     pages += 1
-
+    console.log(pages)
 };
 
 // функция клика по форме
@@ -66,10 +66,11 @@ function onSearch(event) {
                 return;
             }
             onMarcupGallery(data);
+            pages = 1
             // let perPage = data.per_page;
             // perPage += data.hits.length
             // pages += data.totalPages
-            // console.log(pages)
+            console.log(pages)
 
 
 
