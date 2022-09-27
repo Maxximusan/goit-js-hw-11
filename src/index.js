@@ -22,6 +22,7 @@ let WON = 0
 
 // рендерит массив (дата-параметр) картинок согласно разметки 
 function onMarcupGallery(data) {
+
     const markup = data.hits.map(data => markupGalleryCard(data)).join('');
     refs.galleryContainer.insertAdjacentHTML('beforeend', markup);
     lightbox.refresh();
@@ -39,6 +40,7 @@ function onSearch(event) {
 
     if (pixabayApiService.query === '') {
         Notiflix.Notify.warning('Please, fill the main field');
+        refs.loadMoreBtn.classList.add('is-hidden');
         return;
     }
     pixabayApiService.fetchGalleryCards()
@@ -80,6 +82,17 @@ function onSearch(event) {
                 refs.loadMoreBtn.classList.remove('is-hidden');
                 // lightbox.refresh();
             }
+
+            if (data.totalHits === data.hits.length) {
+                pages = 0
+            }
+
+
+            // if (data.totalPages === pages) {
+            //     refs.loadMoreBtn.classList.add('is-hidden');
+            //     Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+            // }
+
 
 
             // if (pages === data.totalPages) {
